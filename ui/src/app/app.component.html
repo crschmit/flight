@@ -1,14 +1,23 @@
-<div class="column">
-  <md-toolbar layout="row" class="md-toolbar-tools">
-    <h1>Flight App</h1>
-  </md-toolbar>
-  <div flex layout="row">
-    <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
-      Sidenav
-    </md-sidenav>
-    <md-content flex id="content">
-      Content
-    </md-content>
-  </div>
-  <flight-map></flight-map>
-</div>
+<md-content>
+  <md-tabs>
+    <md-tab label="Flights">
+      <md-content class="md-padding">
+        <h1>Flights Tab</h1>
+        <p>some flights info ...</p>
+      </md-content>
+    </md-tab>
+    <md-tab label="Locations">
+      <md-content class="md-padding">
+        <h1>Locations Tab</h1>
+        <p>some locations info ...</p>
+      </md-content>
+    </md-tab>
+    <md-tab label="Trips">
+      <md-content class="md-padding">
+        <h1>Trips Tab</h1>
+        <p>some trips info ...</p>
+      </md-content>
+    </md-tab>
+  </md-tabs>
+</md-content>
+<flight-map></flight-map>
