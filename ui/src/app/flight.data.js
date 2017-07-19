@@ -7,6 +7,9 @@
 //   offset: Time
 // }
 
+// Any: City
+const Any = 'Any'
+
 // origin: Flight -> City
 const origin = f => f.origin
 // destination: Flight -> City
@@ -34,6 +37,22 @@ const always = x => y => x
 // match: x -> y -> Boolean
 const match = x => y => x === y
 
+// Any -> Boolean
+const matchAny = match(Any)
+// City -> Flight -> Boolean
+const anyOrigin = orig => f => matchAny(orig)
+// Flight -> Boolean
+const keepAny = always(true)
+// City -> Flight -> Boolean
+const keepFrom = orig => from(orig)
+// City -> Flight -> Boolean
+const originFilter = orig =>
+  guard(
+    anyOrigin(orig),
+    keepAny,
+    keepFrom(orig)
+  )
+
 const Flight = {
   origin,
   destination,
@@ -43,9 +62,7 @@ const Flight = {
   to,
   departsAfter,
   arrivesBefore,
-  guard,
-  always,
-  match
+  originFilter
 }
 
 export default Flight
