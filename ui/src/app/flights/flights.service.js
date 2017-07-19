@@ -10,6 +10,7 @@ class FlightsService {
     this.destination = 'Any'
 
     this.originFilter = this.Flight.originFilter
+    this.destinationFilter = this.Flight.destinationFilter
   }
 
   getAllFlights () {
@@ -37,9 +38,12 @@ class FlightsService {
   getAvailableFlights () {
     return this.$http
       .get(`${this.apiUrl}/flights`)
-      .then(result => result
-                        .data
-                        .filter(this.originFilter(this.origin)))
+      .then(result =>
+        result
+          .data
+          .filter(this.originFilter(this.origin))
+          .filter(this.destinationFilter(this.destination))
+      )
   }
 
 }

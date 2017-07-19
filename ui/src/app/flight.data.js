@@ -53,6 +53,18 @@ const originFilter = orig =>
     keepFrom(orig)
   )
 
+// City -> Flight -> Boolean
+const anyDestination = dest => f => matchAny(dest)
+// City -> Flight -> Boolean
+const keepTo = dest => to(dest)
+// City -> Flight -> Boolean
+const destinationFilter = dest =>
+  guard(
+    anyDestination(dest),
+    keepAny,
+    keepTo(dest)
+  )
+
 const Flight = {
   origin,
   destination,
@@ -62,7 +74,8 @@ const Flight = {
   to,
   departsAfter,
   arrivesBefore,
-  originFilter
+  originFilter,
+  destinationFilter
 }
 
 export default Flight
