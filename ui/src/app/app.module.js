@@ -1,6 +1,7 @@
 'use strict'
 import flightMap from './map/map.module'
 import apiUrl from './api.url'
+import flightData from './flight.data'
 import appComponent from './app.component.js'
 // import { config } from './app.config'
 
@@ -37,6 +38,7 @@ export default
     .service('$flights', flightsService)
     .component('flightFlights', flightsComponent)
     .constant('apiUrl', apiUrl)
+    .constant('flightData', flightData)
     .component('flightApp', appComponent)
     // .config([$stateProvider, config])
     .name

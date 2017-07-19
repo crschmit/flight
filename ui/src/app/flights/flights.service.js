@@ -1,11 +1,13 @@
 /* @ngInject */
 class FlightsService {
 
-  constructor ($http, apiUrl) {
+  constructor ($http, apiUrl, flightData) {
     this.$http = $http
     this.apiUrl = apiUrl
+    this.Flight = flightData
 
     this.origin = 'Any'
+    this.destination = 'Any'
   }
 
   getAllFlights () {
@@ -31,7 +33,8 @@ class FlightsService {
         .get(`${this.apiUrl}/flights`)
         .then(result => result
                           .data
-                          .filter(f => f.origin.toUpperCase() === this.origin.toUpperCase()))
+                          // .filter(f => f.origin.toUpperCase() === this.origin.toUpperCase()))
+                          .filter(this.Flight.from(this.origin)))
     }
   }
 
