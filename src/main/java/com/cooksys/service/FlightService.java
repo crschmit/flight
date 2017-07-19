@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import com.cooksys.component.DateCmp;
 import com.cooksys.component.FlightGenerator;
 import com.cooksys.pojo.Flight;
 
@@ -14,6 +15,9 @@ public class FlightService {
 
 	@Autowired
 	FlightGenerator generator;
+	
+	@Autowired
+	DateCmp date;
 
 	private ArrayList<Flight> flightList = new ArrayList<>();
 	
