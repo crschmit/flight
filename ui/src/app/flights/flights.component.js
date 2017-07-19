@@ -8,8 +8,14 @@ const controller = class FlightsController {
     this.$flights = $flights
     this.$locations = $locations
 
+    // this.flights = []
+    // $flights.getAllFlights()
+    //   .then(res => {
+    //     this.flights = res
+    //   })
+
     this.flights = []
-    $flights.getAllFlights()
+    $flights.getAvailableFlights()
       .then(res => {
         this.flights = res
       })
@@ -34,6 +40,10 @@ const controller = class FlightsController {
 
   setOrigin (city) {
     this.$flights.setOrigin(city)
+    this.$flights.getAvailableFlights()
+      .then(res => {
+        this.flights = res
+      })
   }
 }
 

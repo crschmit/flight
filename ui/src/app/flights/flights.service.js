@@ -31,7 +31,7 @@ class FlightsService {
         .get(`${this.apiUrl}/flights`)
         .then(result => result
                           .data
-                          .filter(f => f.origin === this.origin))
+                          .filter(f => f.origin.toUpperCase() === this.origin.toUpperCase()))
     }
   }
 
