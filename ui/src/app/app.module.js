@@ -14,6 +14,9 @@ import usersService from './users/users.service'
 import currentUserComponent from './current-user/currentUser.component.js'
 // import currentUserService from './current-user/currentUser.service'
 
+import flightsComponent from './flights/flights.component.js'
+import flightsService from './flights/flights.service'
+
 export default
   angular
     .module('flight', [
@@ -31,6 +34,8 @@ export default
     .service('$users', usersService)
     .component('flightUsers', usersComponent)
     .component('flightCurrentUser', currentUserComponent)
+    .service('$flights', flightsService)
+    .component('flightFlights', flightsComponent)
     .constant('apiUrl', apiUrl)
     .component('flightApp', appComponent)
     // .config([$stateProvider, config])

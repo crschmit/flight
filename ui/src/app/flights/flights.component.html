@@ -1,0 +1,8 @@
+<h1>Flights</h1>
+<ul>
+  <li ng-repeat="flight in $flightsCtrl.getAllFlights()">
+    <span ng-click="$flightsCtrl.setCurrentFlight(flight.id)">
+      origin: {{flight.origin}}  destination: {{flight.destination}}
+    </span>
+  </li>
+</ul>

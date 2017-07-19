@@ -11,6 +11,10 @@ const controller = class UsersController {
   getAllUsers () {
     return this.$users.getAllUsers()
   }
+
+  setCurrentUser (id) {
+    this.$users.setCurrentUser(id)
+  }
 }
 
 export default {

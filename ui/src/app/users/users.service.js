@@ -28,6 +28,10 @@ class UsersService {
   getCurrentUser () {
     return this.currentUser
   }
+
+  setCurrentUser (id) {
+    this.currentUser = id
+  }
 }
 
 export default UsersService
