@@ -27,6 +27,14 @@ const controller = class FlightsController {
   getAllLocations () {
     return this.locations
   }
+
+  getOrigin () {
+    return this.$flights.getOrigin()
+  }
+
+  setOrigin (city) {
+    this.$flights.setOrigin(city)
+  }
 }
 
 export default {

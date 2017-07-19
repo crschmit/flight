@@ -1,8 +1,13 @@
 <h1>Flights</h1>
-<div class="label">Origin</div>
+<!-- <div class="label">Origin:</div> -->
+<div class="label">Origin: {{$flightsCtrl.getOrigin()}}</div>
 <section layout="row">
-  <md-button class="md-raised">Any</md-button>
+  <!-- <md-button class="md-raised">Any</md-button>
   <md-button class="md-raised" ng-repeat="loc in $flightsCtrl.getAllLocations()">
+    {{loc.city}}
+  </md-button> -->
+  <md-button class="md-raised" ng-click="$flightsCtrl.setOrigin('Any')">Any</md-button>
+  <md-button class="md-raised" ng-repeat="loc in $flightsCtrl.getAllLocations()" ng-click="$flightsCtrl.setOrigin(loc.city)">
     {{loc.city}}
   </md-button>
 </section>
