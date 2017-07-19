@@ -45,6 +45,18 @@ const controller = class FlightsController {
         this.flights = res
       })
   }
+
+  getDestination () {
+    return this.$flights.getDestination()
+  }
+
+  setDestination (city) {
+    this.$flights.setDestination(city)
+    this.$flights.getAvailableFlights()
+      .then(res => {
+        this.flights = res
+      })
+  }
 }
 
 export default {

@@ -26,6 +26,14 @@ class FlightsService {
     this.origin = city
   }
 
+  getDestination () {
+    return this.destination
+  }
+
+  setDestination (city) {
+    this.destination = city
+  }
+
   getAvailableFlights () {
     return this.$http
       .get(`${this.apiUrl}/flights`)
