@@ -16,7 +16,7 @@
 <ul>
   <li ng-repeat="flight in $flightsCtrl.getAllFlights()">
     <span ng-click="$flightsCtrl.setCurrentFlight(flight.id)">
-      origin: {{flight.origin}}  destination: {{flight.destination}}
+      origin: {{$flightsCtrl.flightOrigin(flight)}}  destination: {{$flightsCtrl.flightDestination(flight)}}  departure: {{$flightsCtrl.flightDeparture(flight)}}  arrival: {{$flightsCtrl.flightArrival(flight)}}
     </span>
   </li>
 </ul>

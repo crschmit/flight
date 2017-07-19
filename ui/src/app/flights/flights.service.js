@@ -9,6 +9,11 @@ class FlightsService {
     this.origin = 'Any'
     this.destination = 'Any'
 
+    this.flightOrigin = this.Flight.origin
+    this.flightDestination = this.Flight.destination
+    this.flightDeparture = this.Flight.departure
+    this.flightArrival = this.Flight.arrival
+
     this.originFilter = this.Flight.originFilter
     this.destinationFilter = this.Flight.destinationFilter
   }
