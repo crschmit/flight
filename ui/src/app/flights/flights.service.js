@@ -8,6 +8,17 @@ class FlightsService {
 
     this.origin = 'Any'
     this.destination = 'Any'
+
+    this.guard = this.Flight.guard
+    this.matchAny = this.Flight.match('Any') // Any -> Boolean
+    this.keepAny = this.Flight.always(true) // Flight -> Boolean
+    this.keepFrom = this.Flight.from // City -> Flight -> Boolean
+    // this.originFilter = orig =>
+    //   this.guard(
+    //     this.matchAny,
+    //     this.keepAny,
+    //     this.keepFrom(orig)
+    //   )(orig)
   }
 
   getAllFlights () {
@@ -25,17 +36,28 @@ class FlightsService {
   }
 
   getAvailableFlights () {
-    if (this.origin === 'Any') {
-      return this.getAllFlights()
+    // if (this.origin === 'Any') {
+    if (this.matchAny(this.origin)) {
+      // return this.getAllFlights()
+      return this.$http
+        .get(`${this.apiUrl}/flights`)
+        .then(result => result
+                          .data
+                          .filter(this.keepAny))
     }
     else {
       return this.$http
         .get(`${this.apiUrl}/flights`)
         .then(result => result
                           .data
-                          // .filter(f => f.origin.toUpperCase() === this.origin.toUpperCase()))
-                          .filter(this.Flight.from(this.origin)))
+                          .filter(this.keepFrom(this.origin)))
     }
+
+    // return this.$http
+    //   .get(`${this.apiUrl}/flights`)
+    //   .then(result => result
+    //                     .data
+    //                     .filter(this.originFilter(this.origin)))
   }
 
 }

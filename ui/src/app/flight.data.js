@@ -25,6 +25,15 @@ const departsAfter = t => f => t < departure(f)
 // arrivesBefore: Time -> Flight -> Boolean
 const arrivesBefore = t => f => t > arrival(f)
 
+// guard: (x -> bool, x -> y, x -> y) -> x -> y
+const guard = (cnd, grd, fct) =>
+  x => cnd(x) ? grd(x) : fct(x)
+
+// always: x -> y -> x
+const always = x => y => x
+// match: x -> y -> Boolean
+const match = x => y => x === y
+
 const Flight = {
   origin,
   destination,
@@ -33,7 +42,10 @@ const Flight = {
   from,
   to,
   departsAfter,
-  arrivesBefore
+  arrivesBefore,
+  guard,
+  always,
+  match
 }
 
 export default Flight
