@@ -1,11 +1,18 @@
+'use strict'
 import flightMap from './map/map.module'
 import apiUrl from './api.url'
 import appComponent from './app.component.js'
-// import config from './app.config'
+// import { config } from './app.config'
 
-// import locationsComponent from './locations/locations.component.js'
-// import locationsService from './locations/locations.service'
-import flightLocations from './locations/locations.module'
+import locationsComponent from './locations/locations.component.js'
+import locationsService from './locations/locations.service'
+// import flightLocations from './locations/locations.module'
+
+import usersComponent from './users/users.component.js'
+import usersService from './users/users.service'
+
+import currentUserComponent from './current-user/currentUser.component.js'
+// import currentUserService from './current-user/currentUser.service'
 
 export default
   angular
@@ -16,12 +23,15 @@ export default
       'ngMessages',
       'ui.router',
 
-      flightMap,
-      flightLocations
+      flightMap
+      // flightLocations
     ])
-    // .service('$locations', locationsService)
-    // .component('flightLocations', locationsComponent)
+    .service('$locations', locationsService)
+    .component('flightLocations', locationsComponent)
+    .service('$users', usersService)
+    .component('flightUsers', usersComponent)
+    .component('flightCurrentUser', currentUserComponent)
     .constant('apiUrl', apiUrl)
     .component('flightApp', appComponent)
-    // .config(config)
+    // .config([$stateProvider, config])
     .name

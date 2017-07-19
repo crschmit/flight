@@ -1,9 +1,9 @@
 /* @ngInject */
-export default
+export const config =
   ($stateProvider) => {
-    $stateProvider.state('app', {
+    $stateProvider.state('fapp', {
       views: {
-        'locations': 'flightLocations'
+        'locationsView': 'flightLocations'
       }
     })
   }
