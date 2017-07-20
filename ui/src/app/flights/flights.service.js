@@ -16,6 +16,7 @@ class FlightsService {
 
     this.originFilter = this.Flight.originFilter
     this.destinationFilter = this.Flight.destinationFilter
+    this.ordering = this.Flight.increasingByTime
   }
 
   getAllFlights () {
@@ -48,6 +49,7 @@ class FlightsService {
           .data
           .filter(this.originFilter(this.origin))
           .filter(this.destinationFilter(this.destination))
+          .sort(this.ordering)
       )
   }
 
