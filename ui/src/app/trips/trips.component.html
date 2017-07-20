@@ -5,7 +5,7 @@
     <md-subheader class="md-no-sticky">Available Flights</md-subheader>
     <md-list-item class="secondary-button-padding" ng-repeat="flight in $tripsCtrl.getAllFlights()">
       <p>Origin: {{flight.origin}}  Destination: {{flight.destination}}  Offset: {{flight.offset}}  Flight-Time: {{flight.flightTime}}</p>
-      <md-button class="md-secondary">Add to Itinerary</md-button>
+      <md-button class="md-secondary" ng-click="$tripsCtrl.tripAdd(flight)">Add to Itinerary</md-button>
     </md-list-item>
 
     <md-divider></md-divider>
@@ -17,8 +17,8 @@
     <md-list-item>
       <p>Second flight.</p>
     </md-list-item>
-    <md-list-item class="secondary-button-padding">
-      <p>Last Flight</p>
+    <md-list-item class="secondary-button-padding" ng-repeat="flight in $tripsCtrl.tripFlights()">
+      <p>Origin: {{flight.origin}}  Destination: {{flight.destination}}  Offset: {{flight.offset}}  Flight-Time: {{flight.flightTime}}</p>
       <md-button class="md-secondary">Remove from Itinerary</md-button>
     </md-list-item>
   </md-list>

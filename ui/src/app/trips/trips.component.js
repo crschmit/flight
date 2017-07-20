@@ -16,33 +16,36 @@ const controller = class TripsController {
       })
     console.log(this.flights)
 
-    this.getTrip = this.$trips.getTrip
-    this.addNextFlight = this.$trips.addNextFlight
-    this.remLastFlight = this.$trips.remLastFlight
+    // this.tFlights = this.getTrip().flights
+    console.log(this.$trips.currentTrip)
+
+    // this.addNextFlight = this.$trips.addNextFlight
+    // this.remLastFlight = this.$trips.remLastFlight
     this.getAvailableFlights = this.$trips.getAvailableFlights
   }
 
   trip () {
-    return this.getTrip()
+    return this.$trips.currentTrip
   }
 
-  length () {
-    return this.$trips.numFlights(this.getTrip())
+  tripLength () {
+    return this.$trips.numFlights(this.$trips.currentTrip)
   }
 
-  flights () {
-    return this.$trips.flights(this.getTrip())
+  tripFlights () {
+    return this.$trips.flights(this.$trips.currentTrip)
   }
 
-  add (f) {
-    this.addNextFlight(f)
-    this.getAvailableFlights()
+  tripAdd (f) {
+    this.$trips.addNextFlight(f)
+    console.log(this.$trips.currentTrip)
+    this.$trips.getAvailableFlights()
       .then(res => this.flights = res)
   }
 
-  rem () {
-    this.remLastFlight()
-    this.getAvailableFlights()
+  tripRem () {
+    this.$trips.remLastFlight()
+    this.$trips.getAvailableFlights()
       .then(res => this.flights = res)
   }
 

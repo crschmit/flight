@@ -62,6 +62,13 @@ const flightArrival = f => flightDeparture(f) + f.flightTime
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
+const flightEQ = (f1, f2) => {
+    flightOrigin(f1).toUpperCase() === flightOrigin(f2).toUpperCase() &&
+    flightDestination(f1).toUpperCase() === flightDestination(f2).toUpperCase() &&
+    f1.offset === f2.offset &&
+    f1.flightTime === f2.flightTime
+}
+
 // Trip Accessors
 // numFlights: Trip -> Nat
 const numFlights = t => isTrip(t) ? t.numFlights : undefined
