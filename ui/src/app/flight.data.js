@@ -10,7 +10,11 @@
 //   flightTime: Time,
 //   offset: Time
 // }
-
+const isFlight = x =>
+  x.flightTime &&
+  x.offset &&
+  x.origin &&
+  x.destination
 // Any: City
 const Any = 'Any'
 ////////////////////////////////////////////////////////////////////////////////

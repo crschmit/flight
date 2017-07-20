@@ -2,6 +2,7 @@
 import flightMap from './map/map.module'
 import apiUrl from './api.url'
 import flightData from './flight.data'
+import tripData from './trip.data'
 import appComponent from './app.component.js'
 // import { config } from './app.config'
 
@@ -44,6 +45,7 @@ export default
     .component('flightTrips', tripsComponent)
     .constant('apiUrl', apiUrl)
     .constant('flightData', flightData)
+    .constant('tripData', tripData)
     .component('flightApp', appComponent)
     // .config([$stateProvider, config])
     .name
