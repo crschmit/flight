@@ -18,6 +18,9 @@ import currentUserComponent from './current-user/currentUser.component.js'
 import flightsComponent from './flights/flights.component.js'
 import flightsService from './flights/flights.service'
 
+import tripsComponent from './trips/trips.component.js'
+import tripsService from './trips/trips.service'
+
 export default
   angular
     .module('flight', [
@@ -37,6 +40,8 @@ export default
     .component('flightCurrentUser', currentUserComponent)
     .service('$flights', flightsService)
     .component('flightFlights', flightsComponent)
+    .service('$trips', tripsService)
+    .component('flightTrips', tripsComponent)
     .constant('apiUrl', apiUrl)
     .constant('flightData', flightData)
     .component('flightApp', appComponent)
